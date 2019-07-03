@@ -16,29 +16,31 @@
           <a class="nav-link text-danger" href="home.ejs">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link active text-danger" href="bbloq.ejs">Bren's Blog</a>
+            <a class="nav-link text-danger" href="bbloq.ejs">Bren's Blog</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-danger" href="pbloq.ejs">Paityn's Blog</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-danger" href="#">+</a>
+          <a class="nav-link active text-danger" href="add_blog.ejs">+</a>
         </li>
       </ul>
 </header>
-
 <body class="mx-auto bg-dark text-white">
-    <div class="container mx-auto text-center">
-            <h1>Ninja Tasker</h1>
-            <form action="/tasks" method="POST" class="mt-0">
-                <input class="form-control form-control-lg" type="text" name="task" placeholder="Add item ..." required>
-                <button type="submit" class="btn btn-primary btn-lg mt-1 mb-5 btn-block"></button>
-            </form>
-            <ul class="list-group list-group-flush mt-5 text-light">
-                <% for ( let i=0; i < taskToDo.length;  i++ ){%>
-                    <li class="list-group-item" id="<%= i %>" ><%= taskToDo[i].taskItem %></li>
-                <% } %>
-            </ul>
-    </div>
+  <div class="container mx-auto text-center">
+    <h1>Ninja Tasker</h1>
+    <form action="/tasks" method="POST" class="mt-0">
+        <input class="form-control form-control-lg" type="text" name="task" placeholder="Add item ..." required>
+        <button type="submit" class="btn btn-primary btn-lg mt-1 mb-5 btn-block">Add Mission</button>
+    </form>
+    <ul class="list-group list-group-flush mt-5 text-light">
+        <% for ( let i=0; i < taskToDo.length;  i++ ){%>
+            <li class="list-group-item" id="<%= i %>" ><%= taskToDo[i].taskItem %></li>
+        <% } %>
+    </ul>
+</div>
+<script src="/js/main.js"></script>
+
+
 </body>
 </html>
