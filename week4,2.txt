@@ -1,0 +1,2 @@
+learned how to set up our own client side servers and using express 
+to speed up the process

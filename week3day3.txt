@@ -1,0 +1,1 @@
+learned alot of the fun javascript stuff, and classes with constructors

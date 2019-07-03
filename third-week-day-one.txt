@@ -1,0 +1,1 @@
+This week we learned JavaScript, and the three variables and their scopes. Which is something I personally need to better myself with. But all in due time.
