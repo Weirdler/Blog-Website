@@ -19,7 +19,7 @@ app.get('/bbloq.ejs', function(req, res){
 });
 app.get('/pbloq.ejs', function(req, res){
     console.log('bith lasag'),
-    res.render('bbloq')
+    res.render('pbloq')
 });
 
 app.listen(3000, function(err){
