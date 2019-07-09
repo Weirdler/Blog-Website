@@ -59,4 +59,24 @@ h1 {
     max-width: 150px;
     margin: 0 auto 30px;
     border-radius: 100%;
+
+}
+.container {
+    background-color: #0c1521;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+}
+
+.list-group-item {
+    background-color: #000099;
+}
+
+.btn {
+    background-color: #f11421;
+}
+
+li:hover {
+    text-decoration: line-through;
+    background: rgb(0,0,0,0.2);
+    cursor: pointer;
 }

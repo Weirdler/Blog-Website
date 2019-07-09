@@ -1,9 +1,12 @@
+const title = document.getElementsByTagName('li');
 
-for (let i = 0; i < db.length; i++) {
-    const element = db[i];
+for (let i = 0; i < title.length; i++) {
+    const element = title[i];
     element.addEventListener('click', function(){
-        fetch('/tasks/' + element.id, {method: "delete"} )
+        console.log(element.id);
+        fetch('/add_blog/' + element.id, {method: "delete"} )
         .then((res) => res.json() )
         .then((data) => location.reload() )
     }) 
 }
+
