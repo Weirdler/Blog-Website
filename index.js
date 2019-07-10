@@ -1,6 +1,9 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const mysql = require('mysql');
+require('dotenv').config()
+
+const port = process.env.PORT || 3000;
 
 const db = mysql.createConnection({
     host : 'localhost',
@@ -41,19 +44,19 @@ app.get('/add_blog',(req, res) => {
     db.query(sql,(err, results) => {
         if (err) throw err;
         // rendering tasks with dummyData list
-       res.render('add_blog', {taskToDo: results});
+        console.log(results);
+         res.render('add_blog', {taskToDo: results});
     //    console.log(results);
     });
 });
-// app.get('/add_blog/:id',(req, res) => {
-//     let sql = 'SELECT * FROM task'
-//     db.query(sql,(err, results) => {
-//         if (err) throw err;
-//         // rendering tasks with dummyData list
-//        res.render('add_blog', {taskToDo: results});
-//     });
-// });
 
+app.get('/blog_bodys/:id',(req,res) => {
+    let sql = 'SELECT Body FROM posts WHERE ID =' + req.params.id
+    db.query(sql,(err, results) => {
+        if (err) throw err;
+        res.render('blog_bodys', {blog: results})
+    })
+})
 
 // Post for tasks: posting a task
 app.post('/add_blog', urlEncoded,(req, res) => {
@@ -69,19 +72,19 @@ app.post('/add_blog', urlEncoded,(req, res) => {
 // formatting for incoming requests
 
 // delete for tasks
-app.delete("/add_blog/:id",(req, res) => {
-    // deleting item from data set
-    let sql = 'DELETE FROM posts WHERE ID=' + req.params.id;
-    console.log("spicy time")
-        db.query(sql,(err, result) => {
-            if(err) throw err;
-            console.log(result);
-            res.json(result)
-        })
-});
+// app.delete("/blog_bodys/:id",(req, res) => {
+//     // deleting item from data set
+//     let sql = 'DELETE FROM posts WHERE ID=' + req.params.id;
+//     console.log("post has been deleted")
+//         db.query(sql,(err, result) => {
+//             if(err) throw err;
+//             console.log(result);
+//             res.json(result)
+//         })
+// });
 
-app.listen(3000,(err) => {
+app.listen(port,(err) => {
     if (err);
         console.log(err);
-    console.log('Server is live on port 3000');
+    console.log('Server is live on port ' + port);
 })

@@ -16,7 +16,7 @@
           <a class="nav-link text-danger" href="home">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active text-danger" href="add_blog">+</a>
+          <a class="nav-link active text-danger" href="add_blog">Current Blog Posts</a>
         </li>
       </ul>
 </header>
@@ -24,12 +24,14 @@
   <div class="container mx-auto text-center">
     <h1>Blog?!</h1>
     <form action="/add_blog" method="POST" class="mt-0">
-        <input class="form-control form-control-lg" type="text" name="title" placeholder="Add item ..." required>
-        <button type="submit" class="btn btn-primary btn-lg mt-1 mb-5 btn-block">Add Mission</button>
-    </form>
+        <input class="form-control form-control-lg" type="text" name="title" placeholder="Add Title ..." required>
+        <input class="form-control form-control-lg" type="text" name="body" placeholder="Add Body ..." required>
+        <button type="submit" class="btn btn-primary btn-lg mt-1 mb-5 btn-block">Add Blog Post</button>
+
+      </form>
     <ul class="list-group list-group-flush mt-5 text-light">
         <% for ( let i=0; i < taskToDo.length;  i++ ){%>
-            <li class="list-group-item" id="<%= taskToDo[i].ID %>" ><%= taskToDo[i].Title %></li>
+            <li class="list-group-item" id="<%= taskToDo[i].ID %>" ><a class="nav-link text-danger" href="/blog_bodys/<%= taskToDo[i].ID %>"><%= taskToDo[i].Title %></a></li>
         <% } %>
     </ul>
 </div>

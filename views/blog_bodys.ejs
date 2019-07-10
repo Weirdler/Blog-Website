@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Blog Home</title>
+    <title>Added Blog</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- css styles -->
     <link rel="stylesheet" href="css/normalize.css">
@@ -13,17 +13,22 @@
 <header>
     <ul class="nav">
         <li class="nav-item">
-          <a class="nav-link active text-danger" href="home">Home</a>
+          <a class="nav-link text-danger" href="home">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-danger" href="add_blog">Current Blog Posts</a>
+          <a class="nav-link active text-danger" href="add_blog">Current Blog Posts</a>
         </li>
       </ul>
 </header>
-</header>
 <body class="mx-auto bg-dark text-white">
-    <div class="container text-center">
-        <h1 class="display-1 mt-5 text-danger"><em>H O M E</em></h1>
+    <div class="container mx-auto text-center">
+        <h1>Blog Content</h1>
+        <ul class="list-group list-group-flush mt-5 text-danger">
+            <% for ( let i=0; i < blog.length;  i++ ){%>
+                <li class="list-group-item" id="<%= blog[i].ID %>" ><%= blog[i].Body %></li>
+            <% } %>
+        </ul> 
     </div>
+    <script src="/js/main.js"></script>
 </body>
 </html>
